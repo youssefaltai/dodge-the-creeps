@@ -2,7 +2,8 @@ extends Area2D
 
 signal hit
 
-@export var speed = 400
+@export var quick_speed = 400
+@export var normal_speed = 200
 var screen_size
 
 # Called when the node enters the scene tree for the first time.
@@ -11,10 +12,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var speed
 	if Input.is_action_pressed("boost"):
-		speed = 400
+		speed = quick_speed
 	else:
-		speed = 200
+		speed = normal_speed
 	
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_down"):
